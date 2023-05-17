@@ -8,18 +8,12 @@
 curl --proto '=https' --tlsv1.2 -sSf https://sh.edgedb.com | sh
 source <Путь_из_вывода>
 ```
-запустить БД (локально):
+запустить БД и API (в докере): \ 
 ```
-edgedb project init
-```
-запустить БД (в докере): \
-в первом терминале: 
-```
-docker-compose up
+sudo rm -rf ./data
+sudo rm -rf ./dbschema
+docker-compose --env-file .env -f docker-compose.yml up
 ```
 (в docker-compose только образ edgeDB) \
 
-Во втором терминале: 
-
-
-
+Запустить фронт (локально)
