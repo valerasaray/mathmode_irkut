@@ -8,12 +8,16 @@ jpg
 
 ## Информация
 Таблица Miro: https://miro.com/welcomeonboard/SmZrSlM1Tm4wM2lxaWFlVGVndWhldExYSlE5TFJNQmJSSVN2MXVoOERZM2lXQzlxT0lJZkV3aXg5bVQyQUMxU3wzNDU4NzY0NTI1Nzc4NjY2NDU4fDI=?share_link_id=253311310582
+
 Схема БД:
 ![Схема БД](./doc/bd.jpg)
+
 Основная бизнес-логика:
 ![Основная бизнес-логика](./doc/bl.jpg)
+
 Диаграмма прециндентов:
 ![Диаграмма прециндентов](./doc/diag_prec.jpg)
+
 API:
 [API](./doc/bd.jpg)
 
