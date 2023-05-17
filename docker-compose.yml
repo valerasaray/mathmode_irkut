@@ -1,0 +1,87 @@
+version: '3.0'
+
+services:
+  s3:
+    container_name: s3
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${S3_USER}
+      - POSTGRES_PASSWORD=${S3_PASSWORD}
+      - POSTGRES_DB=${S3_NAME}
+    ports:
+      - "5433:5432"
+    # networks:
+    #   - api_network
+
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+  #     - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+  #   ports:
+  #     - 5050:80
+  #   depends_on:
+  #     - s3
+  #   networks:
+  #     - api_network
+  
+  # web:
+  #   container_name: web
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./:/app
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+    # environment:
+      # - PATH=$PATH:/app/node_modules/.bin
+  #   depends_on:
+  #     - api
+  #   ports:
+  #     - 3000:3000
+    # networks:
+    #   - api_network
+
+  api:
+    container_name: api
+    build: ./api
+    command: bash -c "sleep 10; rm -rf /root/.config/edgedb/credentials/my_instance.json; edgedb -P 5656 -H edgedb -u apidemon -d edgedb --password-from-stdin instance link --trust-tls-cert my_instance <<< '12dfYZ_12' && edgedb migrate -I my_instance &&  cd /a/app && alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - ./api:/app
+    ports:
+      - 8000:8000
+    environment:
+      - S3_URL=${S3_URL}
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      - s3
+      - edgedb
+    restart: always
+    # networks:
+    #   - api_network
+  
+  edgedb:
+    image: edgedb/edgedb:nightly_3-dev7489_cv202305040002
+    environment:
+      EDGEDB_SERVER_SECURITY: insecure_dev_mode
+      EDGEDB_SERVER_USER: apidemon
+      EDGEDB_SERVER_PASSWORD: ${DATABASE_PASSWORD}
+      EDGEDB_SERVER_ADMIN_UI: enabled
+    user: root
+    volumes:
+      - "./dbschema:/dbschema"
+      - ./data:/var/lib/edgedb/data
+    ports:
+      - "5656:5656"
+    # networks:
+    #   - api_network
+
+# networks:
+#   api_network:
+#     driver: bridge
+
+
+# && edgedb -P 5656 -u apidemon instance link --trust-tls-cert my_instance && edgedb migrate -I my_instance && edgedb project init
