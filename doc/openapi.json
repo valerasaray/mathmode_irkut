@@ -1,0 +1,2138 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "IRKUT",
+        "description": "API \u0434\u043b\u044f \u043a\u0435\u0439\u0441\u0430 \u0418\u0440\u043a\u0443\u0442",
+        "version": "0.0.1",
+        "x-logo": {
+            "url": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png"
+        }
+    },
+    "paths": {
+        "/nodes/along": {
+            "post": {
+                "summary": "Post Along Node",
+                "operationId": "post_along_node_nodes_along_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AlongData"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAlongNodeResult"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/nodes/update_fig": {
+            "post": {
+                "summary": "Update Fig",
+                "operationId": "update_fig_nodes_update_fig_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FigData"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/nodes/by_assigned": {
+            "get": {
+                "summary": "Get Nodes By Assigned",
+                "operationId": "get_nodes_by_assigned_nodes_by_assigned_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Login",
+                            "maxLength": 50,
+                            "type": "string"
+                        },
+                        "name": "login",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Get Nodes By Assigned Nodes By Assigned Get",
+                                    "anyOf": [
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/SelectNodeByAssignedGroupResult"
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResult"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/nodes/complete": {
+            "post": {
+                "summary": "Post Complete Node",
+                "operationId": "post_complete_node_nodes_complete_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CompleteNodeData"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "summary": "Get User",
+                "operationId": "get_user_user_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Login",
+                            "maxLength": 50,
+                            "type": "string"
+                        },
+                        "name": "login",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Get User User Get",
+                                    "anyOf": [
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/GetUserByLoginResult"
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/GetUserByLoginResult"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/processes/group": {
+            "get": {
+                "summary": "Get Processes Group",
+                "operationId": "get_processes_group_processes_group_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Login",
+                            "maxLength": 50,
+                            "type": "string"
+                        },
+                        "name": "login",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Get Processes Group Processes Group Get",
+                                    "anyOf": [
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/GetProcessesByGroupResult"
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/GetProcessesByGroupResult"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/processes/realiser": {
+            "get": {
+                "summary": "Get Processes Group",
+                "operationId": "get_processes_group_processes_realiser_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Login",
+                            "maxLength": 50,
+                            "type": "string"
+                        },
+                        "name": "login",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Get Processes Group Processes Realiser Get",
+                                    "anyOf": [
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/GetProcessesByRealiserResult"
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/GetProcessesByRealiserResult"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/processes/update_status": {
+            "post": {
+                "summary": "Update Status",
+                "operationId": "update_status_processes_update_status_post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Process Id",
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "name": "process_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/notifications": {
+            "get": {
+                "summary": "Get Notifications",
+                "operationId": "get_notifications_notifications_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Login",
+                            "maxLength": 50,
+                            "type": "string"
+                        },
+                        "name": "login",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/update": {
+            "post": {
+                "summary": "Update Comment",
+                "operationId": "update_comment_comments_update_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommentsDataUpdate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/create": {
+            "post": {
+                "summary": "Create Comment",
+                "operationId": "create_comment_comments_create_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommentsDataCreate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/templates/create": {
+            "post": {
+                "summary": "Post Create Templates",
+                "operationId": "post_create_templates_templates_create_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateProcessData"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AlongData": {
+                "title": "AlongData",
+                "required": [
+                    "title",
+                    "department_id",
+                    "node_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "department_id": {
+                        "title": "Department Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "node_id": {
+                        "title": "Node Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "CommentsDataCreate": {
+                "title": "CommentsDataCreate",
+                "required": [
+                    "login",
+                    "text_str",
+                    "subnode_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "text_str": {
+                        "title": "Text Str",
+                        "type": "string"
+                    },
+                    "subnode_id": {
+                        "title": "Subnode Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "CommentsDataUpdate": {
+                "title": "CommentsDataUpdate",
+                "required": [
+                    "login",
+                    "answer",
+                    "comment_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "answer": {
+                        "title": "Answer",
+                        "type": "string"
+                    },
+                    "comment_id": {
+                        "title": "Comment Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "CompleteNodeData": {
+                "title": "CompleteNodeData",
+                "required": [
+                    "node_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "node_id": {
+                        "title": "Node Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "CreateAlongNodeResult": {
+                "title": "CreateAlongNodeResult",
+                "required": [
+                    "id",
+                    "along"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "along": {
+                        "$ref": "#/components/schemas/CreateAlongNodeResultAlong"
+                    }
+                },
+                "description": "CreateAlongNodeResult(id: 'uuid.UUID', along: 'CreateAlongNodeResultAlong | None')"
+            },
+            "CreateAlongNodeResultAlong": {
+                "title": "CreateAlongNodeResultAlong",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    }
+                },
+                "description": "CreateAlongNodeResultAlong(id: 'uuid.UUID', title: 'str')"
+            },
+            "CreateProcessData": {
+                "title": "CreateProcessData",
+                "required": [
+                    "template_id",
+                    "department_id",
+                    "title",
+                    "priority_id",
+                    "login"
+                ],
+                "type": "object",
+                "properties": {
+                    "template_id": {
+                        "title": "Template Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "department_id": {
+                        "title": "Department Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "priority_id": {
+                        "title": "Priority Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    }
+                }
+            },
+            "FigData": {
+                "title": "FigData",
+                "required": [
+                    "login",
+                    "subnode_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "subnode_id": {
+                        "title": "Subnode Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "GetProcessesByGroupResult": {
+                "title": "GetProcessesByGroupResult",
+                "required": [
+                    "id",
+                    "title",
+                    "nodes",
+                    "realiser",
+                    "realiserGroup",
+                    "priority",
+                    "passport_ref",
+                    "processType"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "nodes": {
+                        "title": "Nodes",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItem"
+                        }
+                    },
+                    "realiser": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemAssignedItemBoss"
+                    },
+                    "realiserGroup": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultrealiserGroup"
+                    },
+                    "priority": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultPriority"
+                    },
+                    "passport_ref": {
+                        "title": "Passport Ref",
+                        "type": "string"
+                    },
+                    "processType": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultprocessType"
+                    }
+                },
+                "description": "GetProcessesByGroupResult(id: 'uuid.UUID', title: 'str', nodes: 'list[GetProcessesByGroupResultNodesItem]', realiser: 'GetProcessesByGroupResultNodesItemAssignedItemBoss | None', realiserGroup: 'GetProcessesByGroupResultrealiserGroup | None', priority: 'GetProcessesByGroupResultPriority | None', passport_ref: 'str | None', processType: 'GetProcessesByGroupResultprocessType | None')"
+            },
+            "GetProcessesByGroupResultNodesItem": {
+                "title": "GetProcessesByGroupResultNodesItem",
+                "required": [
+                    "id",
+                    "title",
+                    "assigned",
+                    "along",
+                    "addenable",
+                    "subs",
+                    "next",
+                    "customField",
+                    "status",
+                    "receipt"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "assigned": {
+                        "title": "Assigned",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemAssignedItem"
+                        }
+                    },
+                    "along": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemAlong"
+                    },
+                    "addenable": {
+                        "title": "Addenable",
+                        "type": "boolean"
+                    },
+                    "subs": {
+                        "title": "Subs",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemSubsItem"
+                        }
+                    },
+                    "next": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemNext"
+                    },
+                    "customField": {
+                        "title": "Customfield",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemcustomFieldItem"
+                        }
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemStatus"
+                    },
+                    "receipt": {
+                        "title": "Receipt",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItem(id: 'uuid.UUID', title: 'str', assigned: 'list[GetProcessesByGroupResultNodesItemAssignedItem]', along: 'GetProcessesByGroupResultNodesItemAlong | None', addenable: 'bool | None', subs: 'list[GetProcessesByGroupResultNodesItemSubsItem]', next: 'GetProcessesByGroupResultNodesItemNext | None', customField: 'list[GetProcessesByGroupResultNodesItemcustomFieldItem]', status: 'GetProcessesByGroupResultNodesItemStatus | None', receipt: 'datetime.datetime | None')"
+            },
+            "GetProcessesByGroupResultNodesItemAlong": {
+                "title": "GetProcessesByGroupResultNodesItemAlong",
+                "required": [
+                    "id",
+                    "title",
+                    "addenable"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "addenable": {
+                        "title": "Addenable",
+                        "type": "boolean"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemAlong(id: 'uuid.UUID', title: 'str', addenable: 'bool | None')"
+            },
+            "GetProcessesByGroupResultNodesItemAssignedItem": {
+                "title": "GetProcessesByGroupResultNodesItemAssignedItem",
+                "required": [
+                    "id",
+                    "title",
+                    "boss",
+                    "staff"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "boss": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemAssignedItemBoss"
+                    },
+                    "staff": {
+                        "title": "Staff",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemAssignedItemBoss"
+                        }
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemAssignedItem(id: 'uuid.UUID', title: 'str', boss: 'GetProcessesByGroupResultNodesItemAssignedItemBoss | None', staff: 'list[GetProcessesByGroupResultNodesItemAssignedItemBoss]')"
+            },
+            "GetProcessesByGroupResultNodesItemAssignedItemBoss": {
+                "title": "GetProcessesByGroupResultNodesItemAssignedItemBoss",
+                "required": [
+                    "id",
+                    "login"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemAssignedItemBoss(id: 'uuid.UUID', login: 'str')"
+            },
+            "GetProcessesByGroupResultNodesItemNext": {
+                "title": "GetProcessesByGroupResultNodesItemNext",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemNext(id: 'uuid.UUID')"
+            },
+            "GetProcessesByGroupResultNodesItemStatus": {
+                "title": "GetProcessesByGroupResultNodesItemStatus",
+                "required": [
+                    "id",
+                    "title",
+                    "color"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "color": {
+                        "title": "Color",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemStatus(id: 'uuid.UUID', title: 'str', color: 'str')"
+            },
+            "GetProcessesByGroupResultNodesItemSubsItem": {
+                "title": "GetProcessesByGroupResultNodesItemSubsItem",
+                "required": [
+                    "id",
+                    "title",
+                    "start_verification",
+                    "comments",
+                    "fit",
+                    "end_verification",
+                    "end_correction"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "start_verification": {
+                        "title": "Start Verification",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "comments": {
+                        "title": "Comments",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemSubsItemCommentsItem"
+                        }
+                    },
+                    "fit": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemSubsItemFit"
+                    },
+                    "end_verification": {
+                        "title": "End Verification",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end_correction": {
+                        "title": "End Correction",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemSubsItem(id: 'uuid.UUID', title: 'str', start_verification: 'datetime.datetime | None', comments: 'list[GetProcessesByGroupResultNodesItemSubsItemCommentsItem]', fit: 'GetProcessesByGroupResultNodesItemSubsItemFit | None', end_verification: 'datetime.datetime | None', end_correction: 'datetime.datetime | None')"
+            },
+            "GetProcessesByGroupResultNodesItemSubsItemCommentsItem": {
+                "title": "GetProcessesByGroupResultNodesItemSubsItemCommentsItem",
+                "required": [
+                    "id",
+                    "text_str",
+                    "author",
+                    "answer"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "text_str": {
+                        "title": "Text Str",
+                        "type": "string"
+                    },
+                    "author": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemSubsItemCommentsItemAuthor"
+                    },
+                    "answer": {
+                        "title": "Answer",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemSubsItemCommentsItem(id: 'uuid.UUID', text_str: 'str', author: 'GetProcessesByGroupResultNodesItemSubsItemCommentsItemAuthor | None', answer: 'str | None')"
+            },
+            "GetProcessesByGroupResultNodesItemSubsItemCommentsItemAuthor": {
+                "title": "GetProcessesByGroupResultNodesItemSubsItemCommentsItemAuthor",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemSubsItemCommentsItemAuthor(id: 'uuid.UUID')"
+            },
+            "GetProcessesByGroupResultNodesItemSubsItemFit": {
+                "title": "GetProcessesByGroupResultNodesItemSubsItemFit",
+                "required": [
+                    "id",
+                    "login",
+                    "FIO",
+                    "rights"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "FIO": {
+                        "title": "Fio",
+                        "type": "string"
+                    },
+                    "rights": {
+                        "title": "Rights",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemSubsItemFitRightsItem"
+                        }
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemSubsItemFit(id: 'uuid.UUID', login: 'str', FIO: 'str | None', rights: 'list[GetProcessesByGroupResultNodesItemSubsItemFitRightsItem]')"
+            },
+            "GetProcessesByGroupResultNodesItemSubsItemFitRightsItem": {
+                "title": "GetProcessesByGroupResultNodesItemSubsItemFitRightsItem",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemSubsItemFitRightsItem(id: 'uuid.UUID', value: 'str')"
+            },
+            "GetProcessesByGroupResultNodesItemcustomFieldItem": {
+                "title": "GetProcessesByGroupResultNodesItemcustomFieldItem",
+                "required": [
+                    "id",
+                    "value",
+                    "titleField"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    },
+                    "titleField": {
+                        "$ref": "#/components/schemas/GetProcessesByGroupResultNodesItemcustomFieldItemtitleField"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemcustomFieldItem(id: 'uuid.UUID', value: 'str', titleField: 'GetProcessesByGroupResultNodesItemcustomFieldItemtitleField | None')"
+            },
+            "GetProcessesByGroupResultNodesItemcustomFieldItemtitleField": {
+                "title": "GetProcessesByGroupResultNodesItemcustomFieldItemtitleField",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultNodesItemcustomFieldItemtitleField(id: 'uuid.UUID', value: 'str')"
+            },
+            "GetProcessesByGroupResultPriority": {
+                "title": "GetProcessesByGroupResultPriority",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultPriority(id: 'uuid.UUID', value: 'str')"
+            },
+            "GetProcessesByGroupResultprocessType": {
+                "title": "GetProcessesByGroupResultprocessType",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultprocessType(id: 'uuid.UUID', title: 'str')"
+            },
+            "GetProcessesByGroupResultrealiserGroup": {
+                "title": "GetProcessesByGroupResultrealiserGroup",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByGroupResultrealiserGroup(id: 'uuid.UUID', title: 'str')"
+            },
+            "GetProcessesByRealiserResult": {
+                "title": "GetProcessesByRealiserResult",
+                "required": [
+                    "id",
+                    "title",
+                    "nodes",
+                    "realiser",
+                    "realiserGroup",
+                    "priority",
+                    "passport_ref",
+                    "processType"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "nodes": {
+                        "title": "Nodes",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItem"
+                        }
+                    },
+                    "realiser": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemAssignedItemBoss"
+                    },
+                    "realiserGroup": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultrealiserGroup"
+                    },
+                    "priority": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultPriority"
+                    },
+                    "passport_ref": {
+                        "title": "Passport Ref",
+                        "type": "string"
+                    },
+                    "processType": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultprocessType"
+                    }
+                },
+                "description": "GetProcessesByRealiserResult(id: 'uuid.UUID', title: 'str', nodes: 'list[GetProcessesByRealiserResultNodesItem]', realiser: 'GetProcessesByRealiserResultNodesItemAssignedItemBoss | None', realiserGroup: 'GetProcessesByRealiserResultrealiserGroup | None', priority: 'GetProcessesByRealiserResultPriority | None', passport_ref: 'str | None', processType: 'GetProcessesByRealiserResultprocessType | None')"
+            },
+            "GetProcessesByRealiserResultNodesItem": {
+                "title": "GetProcessesByRealiserResultNodesItem",
+                "required": [
+                    "id",
+                    "title",
+                    "assigned",
+                    "along",
+                    "addenable",
+                    "subs",
+                    "next",
+                    "customField",
+                    "status",
+                    "receipt"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "assigned": {
+                        "title": "Assigned",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemAssignedItem"
+                        }
+                    },
+                    "along": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemAlong"
+                    },
+                    "addenable": {
+                        "title": "Addenable",
+                        "type": "boolean"
+                    },
+                    "subs": {
+                        "title": "Subs",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemSubsItem"
+                        }
+                    },
+                    "next": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemNext"
+                    },
+                    "customField": {
+                        "title": "Customfield",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemcustomFieldItem"
+                        }
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemStatus"
+                    },
+                    "receipt": {
+                        "title": "Receipt",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItem(id: 'uuid.UUID', title: 'str', assigned: 'list[GetProcessesByRealiserResultNodesItemAssignedItem]', along: 'GetProcessesByRealiserResultNodesItemAlong | None', addenable: 'bool | None', subs: 'list[GetProcessesByRealiserResultNodesItemSubsItem]', next: 'GetProcessesByRealiserResultNodesItemNext | None', customField: 'list[GetProcessesByRealiserResultNodesItemcustomFieldItem]', status: 'GetProcessesByRealiserResultNodesItemStatus | None', receipt: 'datetime.datetime | None')"
+            },
+            "GetProcessesByRealiserResultNodesItemAlong": {
+                "title": "GetProcessesByRealiserResultNodesItemAlong",
+                "required": [
+                    "id",
+                    "title",
+                    "addenable"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "addenable": {
+                        "title": "Addenable",
+                        "type": "boolean"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemAlong(id: 'uuid.UUID', title: 'str', addenable: 'bool | None')"
+            },
+            "GetProcessesByRealiserResultNodesItemAssignedItem": {
+                "title": "GetProcessesByRealiserResultNodesItemAssignedItem",
+                "required": [
+                    "id",
+                    "title",
+                    "boss",
+                    "staff"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "boss": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemAssignedItemBoss"
+                    },
+                    "staff": {
+                        "title": "Staff",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemAssignedItemBoss"
+                        }
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemAssignedItem(id: 'uuid.UUID', title: 'str', boss: 'GetProcessesByRealiserResultNodesItemAssignedItemBoss | None', staff: 'list[GetProcessesByRealiserResultNodesItemAssignedItemBoss]')"
+            },
+            "GetProcessesByRealiserResultNodesItemAssignedItemBoss": {
+                "title": "GetProcessesByRealiserResultNodesItemAssignedItemBoss",
+                "required": [
+                    "id",
+                    "login"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemAssignedItemBoss(id: 'uuid.UUID', login: 'str')"
+            },
+            "GetProcessesByRealiserResultNodesItemNext": {
+                "title": "GetProcessesByRealiserResultNodesItemNext",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemNext(id: 'uuid.UUID')"
+            },
+            "GetProcessesByRealiserResultNodesItemStatus": {
+                "title": "GetProcessesByRealiserResultNodesItemStatus",
+                "required": [
+                    "id",
+                    "title",
+                    "color"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "color": {
+                        "title": "Color",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemStatus(id: 'uuid.UUID', title: 'str', color: 'str')"
+            },
+            "GetProcessesByRealiserResultNodesItemSubsItem": {
+                "title": "GetProcessesByRealiserResultNodesItemSubsItem",
+                "required": [
+                    "id",
+                    "title",
+                    "start_verification",
+                    "comments",
+                    "fit",
+                    "end_verification",
+                    "end_correction"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "start_verification": {
+                        "title": "Start Verification",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "comments": {
+                        "title": "Comments",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemSubsItemCommentsItem"
+                        }
+                    },
+                    "fit": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemSubsItemFit"
+                    },
+                    "end_verification": {
+                        "title": "End Verification",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end_correction": {
+                        "title": "End Correction",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemSubsItem(id: 'uuid.UUID', title: 'str', start_verification: 'datetime.datetime | None', comments: 'list[GetProcessesByRealiserResultNodesItemSubsItemCommentsItem]', fit: 'GetProcessesByRealiserResultNodesItemSubsItemFit | None', end_verification: 'datetime.datetime | None', end_correction: 'datetime.datetime | None')"
+            },
+            "GetProcessesByRealiserResultNodesItemSubsItemCommentsItem": {
+                "title": "GetProcessesByRealiserResultNodesItemSubsItemCommentsItem",
+                "required": [
+                    "id",
+                    "text_str",
+                    "author",
+                    "answer"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "text_str": {
+                        "title": "Text Str",
+                        "type": "string"
+                    },
+                    "author": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemSubsItemCommentsItemAuthor"
+                    },
+                    "answer": {
+                        "title": "Answer",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemSubsItemCommentsItem(id: 'uuid.UUID', text_str: 'str', author: 'GetProcessesByRealiserResultNodesItemSubsItemCommentsItemAuthor | None', answer: 'str | None')"
+            },
+            "GetProcessesByRealiserResultNodesItemSubsItemCommentsItemAuthor": {
+                "title": "GetProcessesByRealiserResultNodesItemSubsItemCommentsItemAuthor",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemSubsItemCommentsItemAuthor(id: 'uuid.UUID')"
+            },
+            "GetProcessesByRealiserResultNodesItemSubsItemFit": {
+                "title": "GetProcessesByRealiserResultNodesItemSubsItemFit",
+                "required": [
+                    "id",
+                    "login",
+                    "FIO",
+                    "rights"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "FIO": {
+                        "title": "Fio",
+                        "type": "string"
+                    },
+                    "rights": {
+                        "title": "Rights",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemSubsItemFitRightsItem"
+                        }
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemSubsItemFit(id: 'uuid.UUID', login: 'str', FIO: 'str | None', rights: 'list[GetProcessesByRealiserResultNodesItemSubsItemFitRightsItem]')"
+            },
+            "GetProcessesByRealiserResultNodesItemSubsItemFitRightsItem": {
+                "title": "GetProcessesByRealiserResultNodesItemSubsItemFitRightsItem",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemSubsItemFitRightsItem(id: 'uuid.UUID', value: 'str')"
+            },
+            "GetProcessesByRealiserResultNodesItemcustomFieldItem": {
+                "title": "GetProcessesByRealiserResultNodesItemcustomFieldItem",
+                "required": [
+                    "id",
+                    "value",
+                    "titleField"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    },
+                    "titleField": {
+                        "$ref": "#/components/schemas/GetProcessesByRealiserResultNodesItemcustomFieldItemtitleField"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemcustomFieldItem(id: 'uuid.UUID', value: 'str', titleField: 'GetProcessesByRealiserResultNodesItemcustomFieldItemtitleField | None')"
+            },
+            "GetProcessesByRealiserResultNodesItemcustomFieldItemtitleField": {
+                "title": "GetProcessesByRealiserResultNodesItemcustomFieldItemtitleField",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultNodesItemcustomFieldItemtitleField(id: 'uuid.UUID', value: 'str')"
+            },
+            "GetProcessesByRealiserResultPriority": {
+                "title": "GetProcessesByRealiserResultPriority",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultPriority(id: 'uuid.UUID', value: 'str')"
+            },
+            "GetProcessesByRealiserResultprocessType": {
+                "title": "GetProcessesByRealiserResultprocessType",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultprocessType(id: 'uuid.UUID', title: 'str')"
+            },
+            "GetProcessesByRealiserResultrealiserGroup": {
+                "title": "GetProcessesByRealiserResultrealiserGroup",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    }
+                },
+                "description": "GetProcessesByRealiserResultrealiserGroup(id: 'uuid.UUID', title: 'str')"
+            },
+            "GetUserByLoginResult": {
+                "title": "GetUserByLoginResult",
+                "required": [
+                    "id",
+                    "login",
+                    "FIO",
+                    "rights"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "FIO": {
+                        "title": "Fio",
+                        "type": "string"
+                    },
+                    "rights": {
+                        "title": "Rights",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetUserByLoginResultRightsItem"
+                        }
+                    }
+                },
+                "description": "GetUserByLoginResult(id: 'uuid.UUID', login: 'str', FIO: 'str | None', rights: 'list[GetUserByLoginResultRightsItem]')"
+            },
+            "GetUserByLoginResultRightsItem": {
+                "title": "GetUserByLoginResultRightsItem",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "GetUserByLoginResultRightsItem(id: 'uuid.UUID', value: 'str')"
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "SelectNodeByAssignedGroupResult": {
+                "title": "SelectNodeByAssignedGroupResult",
+                "required": [
+                    "id",
+                    "title",
+                    "assigned",
+                    "along",
+                    "addenable",
+                    "subs",
+                    "next",
+                    "customField",
+                    "status",
+                    "receipt"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "assigned": {
+                        "title": "Assigned",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultAssignedItem"
+                        }
+                    },
+                    "along": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultAlong"
+                    },
+                    "addenable": {
+                        "title": "Addenable",
+                        "type": "boolean"
+                    },
+                    "subs": {
+                        "title": "Subs",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultSubsItem"
+                        }
+                    },
+                    "next": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultNext"
+                    },
+                    "customField": {
+                        "title": "Customfield",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultcustomFieldItem"
+                        }
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultStatus"
+                    },
+                    "receipt": {
+                        "title": "Receipt",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResult(id: 'uuid.UUID', title: 'str', assigned: 'list[SelectNodeByAssignedGroupResultAssignedItem]', along: 'SelectNodeByAssignedGroupResultAlong | None', addenable: 'bool | None', subs: 'list[SelectNodeByAssignedGroupResultSubsItem]', next: 'SelectNodeByAssignedGroupResultNext | None', customField: 'list[SelectNodeByAssignedGroupResultcustomFieldItem]', status: 'SelectNodeByAssignedGroupResultStatus | None', receipt: 'datetime.datetime | None')"
+            },
+            "SelectNodeByAssignedGroupResultAlong": {
+                "title": "SelectNodeByAssignedGroupResultAlong",
+                "required": [
+                    "id",
+                    "title",
+                    "addenable"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "addenable": {
+                        "title": "Addenable",
+                        "type": "boolean"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultAlong(id: 'uuid.UUID', title: 'str', addenable: 'bool | None')"
+            },
+            "SelectNodeByAssignedGroupResultAssignedItem": {
+                "title": "SelectNodeByAssignedGroupResultAssignedItem",
+                "required": [
+                    "id",
+                    "title",
+                    "boss",
+                    "staff"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "boss": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultAssignedItemBoss"
+                    },
+                    "staff": {
+                        "title": "Staff",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultAssignedItemBoss"
+                        }
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultAssignedItem(id: 'uuid.UUID', title: 'str', boss: 'SelectNodeByAssignedGroupResultAssignedItemBoss | None', staff: 'list[SelectNodeByAssignedGroupResultAssignedItemBoss]')"
+            },
+            "SelectNodeByAssignedGroupResultAssignedItemBoss": {
+                "title": "SelectNodeByAssignedGroupResultAssignedItemBoss",
+                "required": [
+                    "id",
+                    "login"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultAssignedItemBoss(id: 'uuid.UUID', login: 'str')"
+            },
+            "SelectNodeByAssignedGroupResultNext": {
+                "title": "SelectNodeByAssignedGroupResultNext",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultNext(id: 'uuid.UUID')"
+            },
+            "SelectNodeByAssignedGroupResultStatus": {
+                "title": "SelectNodeByAssignedGroupResultStatus",
+                "required": [
+                    "id",
+                    "title",
+                    "color"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "color": {
+                        "title": "Color",
+                        "type": "string"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultStatus(id: 'uuid.UUID', title: 'str', color: 'str')"
+            },
+            "SelectNodeByAssignedGroupResultSubsItem": {
+                "title": "SelectNodeByAssignedGroupResultSubsItem",
+                "required": [
+                    "id",
+                    "title",
+                    "start_verification",
+                    "comments",
+                    "fit",
+                    "end_verification",
+                    "end_correction"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "start_verification": {
+                        "title": "Start Verification",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "comments": {
+                        "title": "Comments",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultSubsItemCommentsItem"
+                        }
+                    },
+                    "fit": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultSubsItemFit"
+                    },
+                    "end_verification": {
+                        "title": "End Verification",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end_correction": {
+                        "title": "End Correction",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultSubsItem(id: 'uuid.UUID', title: 'str', start_verification: 'datetime.datetime | None', comments: 'list[SelectNodeByAssignedGroupResultSubsItemCommentsItem]', fit: 'SelectNodeByAssignedGroupResultSubsItemFit | None', end_verification: 'datetime.datetime | None', end_correction: 'datetime.datetime | None')"
+            },
+            "SelectNodeByAssignedGroupResultSubsItemCommentsItem": {
+                "title": "SelectNodeByAssignedGroupResultSubsItemCommentsItem",
+                "required": [
+                    "id",
+                    "text_str",
+                    "author",
+                    "answer"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "text_str": {
+                        "title": "Text Str",
+                        "type": "string"
+                    },
+                    "author": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultSubsItemCommentsItemAuthor"
+                    },
+                    "answer": {
+                        "title": "Answer",
+                        "type": "string"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultSubsItemCommentsItem(id: 'uuid.UUID', text_str: 'str', author: 'SelectNodeByAssignedGroupResultSubsItemCommentsItemAuthor | None', answer: 'str | None')"
+            },
+            "SelectNodeByAssignedGroupResultSubsItemCommentsItemAuthor": {
+                "title": "SelectNodeByAssignedGroupResultSubsItemCommentsItemAuthor",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultSubsItemCommentsItemAuthor(id: 'uuid.UUID')"
+            },
+            "SelectNodeByAssignedGroupResultSubsItemFit": {
+                "title": "SelectNodeByAssignedGroupResultSubsItemFit",
+                "required": [
+                    "id",
+                    "login",
+                    "FIO",
+                    "rights"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "login": {
+                        "title": "Login",
+                        "type": "string"
+                    },
+                    "FIO": {
+                        "title": "Fio",
+                        "type": "string"
+                    },
+                    "rights": {
+                        "title": "Rights",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultSubsItemFitRightsItem"
+                        }
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultSubsItemFit(id: 'uuid.UUID', login: 'str', FIO: 'str | None', rights: 'list[SelectNodeByAssignedGroupResultSubsItemFitRightsItem]')"
+            },
+            "SelectNodeByAssignedGroupResultSubsItemFitRightsItem": {
+                "title": "SelectNodeByAssignedGroupResultSubsItemFitRightsItem",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultSubsItemFitRightsItem(id: 'uuid.UUID', value: 'str')"
+            },
+            "SelectNodeByAssignedGroupResultcustomFieldItem": {
+                "title": "SelectNodeByAssignedGroupResultcustomFieldItem",
+                "required": [
+                    "id",
+                    "value",
+                    "titleField"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    },
+                    "titleField": {
+                        "$ref": "#/components/schemas/SelectNodeByAssignedGroupResultcustomFieldItemtitleField"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultcustomFieldItem(id: 'uuid.UUID', value: 'str', titleField: 'SelectNodeByAssignedGroupResultcustomFieldItemtitleField | None')"
+            },
+            "SelectNodeByAssignedGroupResultcustomFieldItemtitleField": {
+                "title": "SelectNodeByAssignedGroupResultcustomFieldItemtitleField",
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "type": "string"
+                    }
+                },
+                "description": "SelectNodeByAssignedGroupResultcustomFieldItemtitleField(id: 'uuid.UUID', value: 'str')"
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
