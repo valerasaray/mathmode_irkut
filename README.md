@@ -18,7 +18,7 @@
 ![Диаграмма прециндентов](./doc/diag_prec.jpg)
 
 API:
-[API](./doc/bd.jpg)
+[API](./doc/openapi.json)
 
 ## Как запустить на локальной машине
 в директории app \
